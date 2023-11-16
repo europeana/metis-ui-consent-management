@@ -1,0 +1,54 @@
+{
+  "name": "@europeana/metis-ui-consent-management",
+  "version": "0.0.1",
+  "files": [
+    "dist/metis-ui-consent-management/**"
+  ],
+  "homepage": "https://github.com/europeana/metis-ui-consent-management.git",
+  "main": "dist/metis-ui-consent-management",
+  "types": "dist/metis-ui-consent-management/index.d.ts",
+  "scripts": {
+    "ng": "ng",
+    "build": "rm -rf ./dist && ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "publish-lib": "npm publish --access=public",
+    "prettier": "prettier --write './**/*.{ts,html}'",
+    "prettier:ci": "prettier --list-different './**/*.{ts,html}'"
+  },
+  "private": false,
+  "dependencies": {
+    "@angular/common": "^16.2.6",
+    "@angular/compiler": "^16.2.6",
+    "@angular/core": "^16.2.6",
+    "@angular/forms": "^16.2.6",
+    "@angular/platform-browser": "^16.2.6",
+    "@angular/platform-browser-dynamic": "^16.2.6",
+    "@angular/router": "^16.2.6",
+    "@types/jasmine": "^3.10.2",
+    "ngx-cookie-service": "^16.0.2",
+    "prettier": "^3.0.3",
+    "rxjs": "^7.5.5",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.3",
+    "@angular/cli": "^16.2.3",
+    "@angular/compiler-cli": "^16.2.6",
+    "@types/jasmine": "^3.10.2",
+    "@types/node": "^12.20.37",
+    "jasmine": "^5.1.0",
+    "jasmine-core": "~3.8.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^16.2.3",
+    "typescript": "4.9.5"
+  },
+  "peerDependencies": {
+    "jasmine": "^5.1.0"
+  }
+}

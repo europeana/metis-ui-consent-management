@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "metis-ui-consent-management": {
+      "projectType": "library",
+      "root": "projects/metis-ui-consent-management",
+      "sourceRoot": "projects/metis-ui-consent-management/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/metis-ui-consent-management/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/metis-ui-consent-management/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/metis-ui-consent-management/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/metis-ui-consent-management/src/test.ts",
+            "tsConfig": "projects/metis-ui-consent-management/tsconfig.spec.json",
+            "karmaConfig": "projects/metis-ui-consent-management/karma.conf.js"
+          }
+        }
+      }
+    }
+  }
+}
