@@ -19,12 +19,16 @@
       type="checkbox"
       (change)="change(changeParam)"
       [formControlName]="name"
-      [ngClass]="{ 'half-checked': partialConsentGiven && name === 'acceptAll' }"
+      [ngClass]="{
+        'half-checked': partialConsentGiven && name === 'acceptAll'
+      }"
     />
     <label [for]="'input-' + name" class="eu-cm-label">
       <span class="eu-cm-title"
         >{{ label }}
-        <span *ngIf="required" class="always-required">({{ translations.alwaysRequired }})</span>
+        <span *ngIf="required" class="always-required"
+          >({{ translations.alwaysRequired }})</span
+        >
       </span>
       <span class="eu-cm-switch">
         <div class="eu-cm-slider round"></div>
@@ -46,7 +50,11 @@
   [formGroup]="form"
   [ngClass]="{ 'eu-cm-mini-mode': miniMode }"
 >
-  <div *ngIf="!miniMode" class="eu-cm" [formGroup]="$any(form.get('consentItems'))">
+  <div
+    *ngIf="!miniMode"
+    class="eu-cm"
+    [formGroup]="$any(form.get('consentItems'))"
+  >
     <div class="eu-cm-header">
       <h1 class="eu-cm-header-title">{{ translations.title }}.</h1>
 
@@ -71,12 +79,12 @@
             <ng-container
               [ngTemplateOutlet]="tmpConsentOption"
               [ngTemplateOutletContext]="{
-              form: form,
-              label: translations.optional.title,
-              name: 'acceptAll',
-              change: clickAcceptAll.bind(this),
-              description: translations.optional.description,
-            }"
+                form: form,
+                label: translations.optional.title,
+                name: 'acceptAll',
+                change: clickAcceptAll.bind(this),
+                description: translations.optional.description
+              }"
             >
             </ng-container>
             <a
@@ -87,28 +95,35 @@
               tabindex="0"
             >
               <ng-container [ngPlural]="getServices(false).length">
-                <ng-template ngPluralCase="=1">{{ translations.serviceSingle }}</ng-template>
+                <ng-template ngPluralCase="=1">{{
+                  translations.serviceSingle
+                }}</ng-template>
                 <ng-template ngPluralCase="other"
-                  >{{ getServices(false).length }} {{ translations.servicePlural }}</ng-template
+                  >{{ getServices(false).length }}
+                  {{ translations.servicePlural }}</ng-template
                 >
               </ng-container>
             </a>
           </div>
 
-          <div class="eu-cm-roll-down-wrapper" [ngClass]="{ 'is-open': openSectionOptional }">
+          <div
+            class="eu-cm-roll-down-wrapper"
+            [ngClass]="{ 'is-open': openSectionOptional }"
+          >
             <ul class="eu-cm-roll-down">
               <ng-container *ngFor="let service of getServices(false)">
                 <ng-container
                   [ngTemplateOutlet]="tmpConsentOption"
                   [ngTemplateOutletContext]="{
-                  name: service.name,
-                  description: translations.services[service.name].description,
-                  label: service.label || service.name,
-                  form: form.get('consentItems'),
-                  purposes: translations.services[service.name].purposes,
-                  change: updatePreference.bind(this),
-                  changeParam: service.name
-                }"
+                    name: service.name,
+                    description:
+                      translations.services[service.name].description,
+                    label: service.label || service.name,
+                    form: form.get('consentItems'),
+                    purposes: translations.services[service.name].purposes,
+                    change: updatePreference.bind(this),
+                    changeParam: service.name
+                  }"
                 >
                 </ng-container>
               </ng-container>
@@ -142,13 +157,19 @@
             tabindex="0"
           >
             <ng-container [ngPlural]="getServices(true).length">
-              <ng-template ngPluralCase="=1">{{ translations.serviceSingle }}</ng-template>
+              <ng-template ngPluralCase="=1">{{
+                translations.serviceSingle
+              }}</ng-template>
               <ng-template ngPluralCase="other"
-                >{{ getServices(true).length }} {{ translations.servicePlural }}</ng-template
+                >{{ getServices(true).length }}
+                {{ translations.servicePlural }}</ng-template
               >
             </ng-container>
           </a>
-          <div class="eu-cm-roll-down-wrapper" [ngClass]="{ 'is-open': openSectionRequired }">
+          <div
+            class="eu-cm-roll-down-wrapper"
+            [ngClass]="{ 'is-open': openSectionRequired }"
+          >
             <ul class="eu-cm-roll-down">
               <ng-container *ngFor="let service of getServices(true)">
                 <ng-container
@@ -156,7 +177,8 @@
                   [ngTemplateOutletContext]="{
                     name: service.name,
                     label: service.label || service.name,
-                    description: translations.services[service.name].description,
+                    description:
+                      translations.services[service.name].description,
                     required: true,
                     form: form.get('consentItems'),
                     purposes: translations.services[service.name].purposes
@@ -170,9 +192,15 @@
       </ng-container>
     </div>
     <div class="eu-cm-ctrls">
-      <button (click)="saveDeclineAndClose()">{{ translations.userDecline }}</button>
-      <button (click)="saveSelectedAndClose()">{{ translations.userAcceptSelected }}</button>
-      <button (click)="saveAllAndClose()">{{ translations.userAcceptAll }}</button>
+      <button (click)="saveDeclineAndClose()">
+        {{ translations.userDecline }}
+      </button>
+      <button (click)="saveSelectedAndClose()">
+        {{ translations.userAcceptSelected }}
+      </button>
+      <button (click)="saveAllAndClose()">
+        {{ translations.userAcceptAll }}
+      </button>
     </div>
   </div>
 
@@ -181,11 +209,15 @@
       {{ translations.miniMode.text }}
     </p>
     <div class="eu-cm-ctrls">
-      <button (click)="openModal()" #openButton>{{ translations.miniMode.userChoose }}</button>
+      <button (click)="openModal()" #openButton>
+        {{ translations.miniMode.userChoose }}
+      </button>
       <button (click)="saveDeclineAndClose()">
         {{ translations.miniMode.userDecline }}
       </button>
-      <button (click)="saveAllAndClose()">{{ translations.miniMode.userAcceptAll }}</button>
+      <button (click)="saveAllAndClose()">
+        {{ translations.miniMode.userAcceptAll }}
+      </button>
     </div>
   </div>
 </div>

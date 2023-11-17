@@ -1,6 +1,6 @@
 {
   "name": "@europeana/metis-ui-consent-management",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "files": [
     "dist/metis-ui-consent-management/**"
   ],
@@ -13,7 +13,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "publish-lib": "npm publish --access=public",
-    "prettier": "prettier --write './**/*.{ts,html}'",
+    "prettier": "prettier --trailing-comma none --write './**/*.{ts,html}'",
     "prettier:ci": "prettier --list-different './**/*.{ts,html}'"
   },
   "private": false,
@@ -27,7 +27,7 @@
     "@angular/router": "^16.2.6",
     "@types/jasmine": "^3.10.2",
     "ngx-cookie-service": "^16.0.2",
-    "prettier": "^3.0.3",
+    "prettier": "^3.1.0",
     "rxjs": "^7.5.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"

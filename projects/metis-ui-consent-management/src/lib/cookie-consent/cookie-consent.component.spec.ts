@@ -58,7 +58,10 @@ describe('CookieConsentComponent', () => {
     return component.form.get(`consentItems.${name}`) as FormControl;
   };
 
-  const checkValInPrefAndUI = (name: string, expected: boolean | undefined): void => {
+  const checkValInPrefAndUI = (
+    name: string,
+    expected: boolean | undefined
+  ): void => {
     const prefs = component.preferences;
     const pref = prefs[name];
     const uiVal = getCtrl(name)?.value;
@@ -118,7 +121,9 @@ describe('CookieConsentComponent', () => {
   });
 
   it('should get the expiry date', () => {
-    expect(component.getExpiryDate().getTime()).toBeGreaterThan(new Date().getTime());
+    expect(component.getExpiryDate().getTime()).toBeGreaterThan(
+      new Date().getTime()
+    );
   });
 
   it('should generate controls', () => {
@@ -150,7 +155,8 @@ describe('CookieConsentComponent', () => {
     component.miniMode = false;
     fixture.detectChanges();
 
-    const acceptAllSwitch = fixture.debugElement.nativeElement.querySelector('#input-acceptAll');
+    const acceptAllSwitch =
+      fixture.debugElement.nativeElement.querySelector('#input-acceptAll');
 
     expect(acceptAllSwitch.classList.contains(className)).toBeFalsy();
 

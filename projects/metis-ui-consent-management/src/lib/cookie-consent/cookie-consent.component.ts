@@ -42,7 +42,9 @@ export class CookieConsentComponent {
     privacyPolicy: 'privacy policy',
     serviceSingle: 'one service',
     servicePlural: 'services',
-    services: {} as { [key: string]: { [key: string]: Array<string> | string | undefined } },
+    services: {} as {
+      [key: string]: { [key: string]: Array<string> | string | undefined };
+    },
     optional: {
       title: 'Services to capture website usage and feedback',
       description:
@@ -50,7 +52,8 @@ export class CookieConsentComponent {
     },
     required: {
       title: 'Essential services for security and customization',
-      description: 'These services are essential for the correct functioning of this website.'
+      description:
+        'These services are essential for the correct functioning of this website.'
     },
     userDecline: 'I decline',
     userAcceptSelected: 'Accept Selected',
@@ -297,8 +300,7 @@ export class CookieConsentComponent {
   saveDeclineAndClose(): void {
     this.form.controls['acceptAll'].setValue(false);
     this.clickAcceptAll();
-    this.saveSelectedAndClose(true);
-    this.preferences;
+    this.saveSelectedAndClose();
   }
 
   /**
@@ -313,14 +315,11 @@ export class CookieConsentComponent {
   /**
    * saveSelectedAndClose
    **/
-  saveSelectedAndClose(userDecline = false): void {
+  saveSelectedAndClose(): void {
     this.preferences[CookieConsentComponent.EU_CM_SAVED] = true;
 
     // record the old prefs...
     const oldPrefs = this.loadPreferences();
-
-    // ...now save the new prefs
-    //    this.cookies.set(CookieConsentComponent.EU_CM, JSON.stringify(this.preferences));
 
     Object.keys(oldPrefs).forEach((prefName: string) => {
       if (oldPrefs[prefName] && !this.preferences[prefName]) {
@@ -342,17 +341,12 @@ export class CookieConsentComponent {
     });
 
     // ...now save the new prefs
-    if (userDecline) {
-      this.cookies.delete(CookieConsentComponent.EU_CM, '/');
-      this.preferences = {};
-    } else {
-      this.cookies.set(
-        CookieConsentComponent.EU_CM,
-        JSON.stringify(this.preferences),
-        this.getExpiryDate(),
-        '/'
-      );
-    }
+    this.cookies.set(
+      CookieConsentComponent.EU_CM,
+      JSON.stringify(this.preferences),
+      this.getExpiryDate(),
+      '/'
+    );
 
     this.close();
   }

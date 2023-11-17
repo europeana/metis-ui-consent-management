@@ -2,8 +2,10 @@ $fontNormal: 16px;
 $fontSmall: 14px;
 
 $colorBackground: var(--eu-cm-color-background, #fff);
+$colorBorderButtonHover: var(--eu-cm-color-border-button-hover, var(--eu-cm-color-theme));
 $colorTheme: var(--eu-cm-color-theme, #197324);
 $colorThemeHighlight: var(--eu-cm-color-theme-highlight, #fc8a62);
+$colorThemeMiddle: var(--eu-cm-color-theme-middle, transparent);
 
 $colorLink: $colorTheme;
 $colorLinkHover: $colorThemeHighlight;
@@ -19,6 +21,7 @@ $timeTransition: 0.4s;
 h1 {
   font-size: 1.75em;
   font-weight: bold;
+  line-height: 1.75em;
 }
 
 label {
@@ -64,15 +67,16 @@ li {
 
     &:focus,
     &:hover {
+      border: 1px solid $colorBorderButtonHover;
       color: $colorThemeHighlight;
+    }
+
+    &:hover {
+      background-color: $colorThemeMiddle;
     }
 
     &:active {
       border: 1px solid $colorThemeHighlight;
-    }
-
-    &:nth-child(1) {
-      background-color: transparent;
     }
 
     &:last-child {
@@ -80,7 +84,7 @@ li {
       background-color: $colorAcceptButtonBackground;
       &:focus,
       &:hover {
-        background-color: transparent;
+        background-color: $colorThemeMiddle;
         color: $colorThemeHighlight;
       }
       &:active {
@@ -117,6 +121,12 @@ li {
       &:first-child {
         border: 0;
         text-transform: none;
+
+        // make the first button appear as a link
+        background-color: transparent;
+        &:hover {
+          background-color: transparent;
+        }
       }
       &:last-child {
         margin: 1em 0;
@@ -192,7 +202,6 @@ li {
 
 .eu-cm-title {
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 .eu-cm-service {
