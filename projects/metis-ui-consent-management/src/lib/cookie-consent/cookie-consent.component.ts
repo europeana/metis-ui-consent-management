@@ -321,6 +321,15 @@ export class CookieConsentComponent {
     // record the old prefs...
     const oldPrefs = this.loadPreferences();
 
+    Object.keys(this.preferences).forEach((prefName: string) => {
+      const service = this.services.find((service: ConsentItem) => {
+        return service.name === prefName;
+      });
+      if (service && service.callback) {
+        service.callback(this.preferences[prefName]);
+      }
+    });
+
     Object.keys(oldPrefs).forEach((prefName: string) => {
       if (oldPrefs[prefName] && !this.preferences[prefName]) {
         const service = this.services.find((service: ConsentItem) => {
@@ -329,14 +338,6 @@ export class CookieConsentComponent {
         if (service && service?.cookies) {
           this.deleteOldCookies(service.cookies);
         }
-      }
-    });
-    Object.keys(this.preferences).forEach((prefName: string) => {
-      const service = this.services.find((service: ConsentItem) => {
-        return service.name === prefName;
-      });
-      if (service && service.callback) {
-        service.callback(this.preferences[prefName]);
       }
     });
 
