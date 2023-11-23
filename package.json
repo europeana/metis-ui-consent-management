@@ -12,10 +12,12 @@
     "build": "rm -rf ./dist && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:dev": "ng test",
     "publish-lib": "npm publish --access=public",
     "prettier": "prettier --trailing-comma none --write './**/*.{ts,html}'",
     "prettier:ci": "prettier --list-different './**/*.{ts,html}'",
-    "lint": "eslint --ext .js,.ts projects/metis-ui-consent-management --fix"
+    "lint": "eslint --ext .ts projects/metis-ui-consent-management --fix",
+    "lint:ci": "eslint --ext .ts projects/metis-ui-consent-management"
   },
   "private": false,
   "dependencies": {
