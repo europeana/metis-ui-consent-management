@@ -4,7 +4,7 @@ module.exports = {
   env: {
     node: true
   },
-  ignorePatterns: ['**/dist/*'],
+  ignorePatterns: ['**/dist/*', '**/karma.conf.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: path.resolve(__dirname, './tsconfig.json'),
