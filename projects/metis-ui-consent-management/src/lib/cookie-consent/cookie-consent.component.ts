@@ -287,7 +287,7 @@ export class CookieConsentComponent {
     serviceCookies.forEach((serviceCookie: RegExp) => {
       const reg: RegExp = serviceCookie;
       Object.keys(this.cookies.getAll()).forEach((cookieName: string) => {
-        if (cookieName.match(reg)) {
+        if(reg.exec(cookieName)) {
           this.cookies.delete(cookieName, '/');
         }
       });
