@@ -84,8 +84,8 @@ export class CookieConsentComponent {
       if (!this.translations.services[service.name]) {
         this.translations.services[service.name] = {
           description: service.description,
-          purposes: service.purposes || undefined,
-          label: service.label || service.name
+          purposes: service.purposes ?? undefined,
+          label: service.label ?? service.name
         };
       }
     });
@@ -325,7 +325,7 @@ export class CookieConsentComponent {
       const service = this.services.find((service: ConsentItem) => {
         return service.name === prefName;
       });
-      if (service && service.callback) {
+      if (service?.callback) {
         service.callback(this.preferences[prefName]);
       }
     });
@@ -335,7 +335,7 @@ export class CookieConsentComponent {
         const service = this.services.find((service: ConsentItem) => {
           return service.name === prefName;
         });
-        if (service && service?.cookies) {
+        if (service?.cookies) {
           this.deleteOldCookies(service.cookies);
         }
       }
