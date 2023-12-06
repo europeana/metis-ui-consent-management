@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { CookieConsentComponent } from '.';
 import { CookieOptions, CookieService, SameSite } from 'ngx-cookie-service';
 
@@ -124,6 +125,17 @@ describe('CookieConsentComponent', () => {
     expect(component.getExpiryDate().getTime()).toBeGreaterThan(
       new Date().getTime()
     );
+  });
+
+  it('should invoke the callback', () => {
+    component.privacyPolicyClass = 'my-class';
+    component.miniMode = false;
+    component.fnPrivacyPolicyClick = jasmine.createSpy();
+    fixture.detectChanges();
+    fixture.debugElement
+      .query(By.css(`.${component.privacyPolicyClass}`))
+      .nativeElement.click();
+    expect(component.fnPrivacyPolicyClick).toHaveBeenCalled();
   });
 
   it('should generate controls', () => {
