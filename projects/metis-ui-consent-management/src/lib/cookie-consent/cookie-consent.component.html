@@ -61,11 +61,19 @@
       <p class="eu-cm-description">
         {{ translations.description }}
         <a
-          *ngIf="translations.privacyPolicy"
+          *ngIf="translations.privacyPolicy && !fnPrivacyPolicyClick"
           (keydown.esc)="shrink()"
           [attr.class]="privacyPolicyClass"
           target="_blank"
           [attr.href]="privacyPolicyUrl"
+          >{{ translations.privacyPolicy }}</a
+        >
+        <a
+          *ngIf="translations.privacyPolicy && fnPrivacyPolicyClick"
+          (keydown.esc)="shrink()"
+          (keydown.enter)="fnPrivacyPolicyClick()"
+          (click)="fnPrivacyPolicyClick()"
+          [attr.class]="privacyPolicyClass"
           >{{ translations.privacyPolicy }}</a
         >
       </p>

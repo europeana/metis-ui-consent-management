@@ -32,6 +32,7 @@ export class CookieConsentComponent {
   @ViewChild('firstFocusTarget') firstFocusTarget: ElementRef;
   @ViewChild('openButton') openButton: ElementRef;
 
+  @Input() fnPrivacyPolicyClick?: () => void;
   @Input() privacyPolicyUrl: string;
   @Input() privacyPolicyClass: string;
   @Input() translations = {
