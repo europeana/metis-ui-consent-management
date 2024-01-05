@@ -54,7 +54,7 @@ export class CookieConsentComponent {
     required: {
       title: 'Essential services for security and customization',
       description:
-        'These services are essential for the correct functioning of this website.'
+        'These services are essential for the correct functioning of this website'
     },
     userDecline: 'I decline',
     userAcceptSelected: 'Accept Selected',
