@@ -8,12 +8,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "paths": {
-      "metis-ui-consent-management": [
-        "dist/metis-ui-consent-management/metis-ui-consent-management",
-        "dist/metis-ui-consent-management"
-      ]
-    },
     "declaration": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
