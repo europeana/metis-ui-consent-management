@@ -32,15 +32,15 @@ export class CookieConsentComponent {
   @ViewChild('firstFocusTarget') firstFocusTarget: ElementRef;
   @ViewChild('openButton') openButton: ElementRef;
 
-  @Input() fnPrivacyPolicyClick?: () => void;
-  @Input() privacyPolicyUrl: string;
-  @Input() privacyPolicyClass: string;
+  @Input() fnLinkClick?: () => void;
+  @Input() linkUrl: string;
+  @Input() linkClass: string;
   @Input() translations = {
     alwaysRequired: 'always required',
     title: 'Services we would like to use',
     description:
       "Here you can see and customise the services that we'd like to use on this website. To learn more please read our",
-    privacyPolicy: 'privacy policy',
+    linkText: 'cookies policy',
     serviceSingle: 'one service',
     servicePlural: 'services',
     services: {} as {
