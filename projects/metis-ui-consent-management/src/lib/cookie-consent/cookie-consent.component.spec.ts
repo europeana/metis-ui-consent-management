@@ -128,14 +128,14 @@ describe('CookieConsentComponent', () => {
   });
 
   it('should invoke the callback', () => {
-    component.privacyPolicyClass = 'my-class';
+    component.linkClass = 'my-class';
     component.miniMode = false;
-    component.fnPrivacyPolicyClick = jasmine.createSpy();
+    component.fnLinkClick = jasmine.createSpy();
     fixture.detectChanges();
     fixture.debugElement
-      .query(By.css(`.${component.privacyPolicyClass}`))
+      .query(By.css(`.${component.linkClass}`))
       .nativeElement.click();
-    expect(component.fnPrivacyPolicyClick).toHaveBeenCalled();
+    expect(component.fnLinkClick).toHaveBeenCalled();
   });
 
   it('should generate controls', () => {

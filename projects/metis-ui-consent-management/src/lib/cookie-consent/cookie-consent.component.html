@@ -60,26 +60,22 @@
 
       <p class="eu-cm-description">
         {{ translations.description }}
-        <ng-container
-          *ngIf="translations.privacyPolicy && !fnPrivacyPolicyClick"
-        >
+        <ng-container *ngIf="translations.linkText && !fnLinkClick">
           <a
             (keydown.esc)="shrink()"
-            [attr.class]="privacyPolicyClass"
+            [attr.class]="linkClass"
             target="_blank"
-            [attr.href]="privacyPolicyUrl"
-            >{{ translations.privacyPolicy }}</a
+            [attr.href]="linkUrl"
+            >{{ translations.linkText }}</a
           >.
         </ng-container>
-        <ng-container
-          *ngIf="translations.privacyPolicy && fnPrivacyPolicyClick"
-        >
+        <ng-container *ngIf="translations.linkText && fnLinkClick">
           <a
             (keydown.esc)="shrink()"
-            (keydown.enter)="fnPrivacyPolicyClick()"
-            (click)="fnPrivacyPolicyClick()"
-            [attr.class]="privacyPolicyClass"
-            >{{ translations.privacyPolicy }}</a
+            (keydown.enter)="fnLinkClick()"
+            (click)="fnLinkClick()"
+            [attr.class]="linkClass"
+            >{{ translations.linkText }}</a
           >.
         </ng-container>
       </p>
