@@ -1,4 +1,11 @@
-import { CommonModule } from '@angular/common';
+import {
+  NgClass,
+  NgFor,
+  NgIf,
+  NgPlural,
+  NgPluralCase,
+  NgTemplateOutlet
+} from '@angular/common';
 import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import {
   FormControl,
@@ -11,7 +18,16 @@ import { CookieService } from 'ngx-cookie-service';
 import { CMData, ConsentItem } from '../_models';
 
 @Component({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    NgTemplateOutlet,
+    NgClass,
+    NgIf,
+    NgFor,
+    NgPlural,
+    NgPluralCase,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [CookieService],
   selector: 'sb-cookie-consent',
   standalone: true,
