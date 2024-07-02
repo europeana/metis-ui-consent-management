@@ -1,6 +1,6 @@
 {
   "name": "@europeana/metis-ui-consent-management",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "peerDependencies": {
     "@angular/common": "^17.1.1",
     "@angular/core": "^17.1.1",
