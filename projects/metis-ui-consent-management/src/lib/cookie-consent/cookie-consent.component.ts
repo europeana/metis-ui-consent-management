@@ -30,7 +30,6 @@ import { CMData, ConsentItem } from '../_models';
   ],
   providers: [CookieService],
   selector: 'sb-cookie-consent',
-  standalone: true,
   templateUrl: './cookie-consent.component.html',
   styleUrls: ['./cookie-consent.component.scss']
 })
