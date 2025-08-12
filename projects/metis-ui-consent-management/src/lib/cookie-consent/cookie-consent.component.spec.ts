@@ -95,7 +95,7 @@ describe('CookieConsentComponent', () => {
 
   it('should not initialise twice', () => {
     component.initialised = true;
-    spyOn(component, 'loadPreferences').and.callThrough();
+    jest.spyOn(component, 'loadPreferences');
 
     component.services = [{ name: 'name' }];
     expect(component.loadPreferences).not.toHaveBeenCalled();
@@ -130,7 +130,7 @@ describe('CookieConsentComponent', () => {
   it('should invoke the callback', () => {
     component.linkClass = 'my-class';
     component.miniMode = false;
-    component.fnLinkClick = jasmine.createSpy();
+    component.fnLinkClick = jest.fn();
     fixture.detectChanges();
     fixture.debugElement
       .query(By.css(`.${component.linkClass}`))
@@ -322,8 +322,8 @@ describe('CookieConsentComponent', () => {
     component.visible = false;
     component.miniMode = true;
 
-    spyOn(component, 'init').and.callThrough();
-    spyOn(component, 'openModal').and.callThrough();
+    jest.spyOn(component, 'init');
+    jest.spyOn(component, 'openModal');
 
     component.show();
 
@@ -383,7 +383,7 @@ describe('CookieConsentComponent', () => {
   });
 
   it('should delete old cookies when saving preferences', () => {
-    spyOn(component, 'deleteOldCookies').and.callThrough();
+    jest.spyOn(component, 'deleteOldCookies');
 
     const serviceName = 'a';
     component.preferences[serviceName] = true;
@@ -409,7 +409,7 @@ describe('CookieConsentComponent', () => {
   });
 
   it('should invoke the service callback when saving preferences', () => {
-    const spy = jasmine.createSpy();
+    const spy = jest.fn();
     component.services = [
       {
         name: 'x',

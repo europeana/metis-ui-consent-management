@@ -25,11 +25,9 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/metis-ui-consent-management/src/test.ts",
-            "tsConfig": "projects/metis-ui-consent-management/tsconfig.spec.json",
-            "karmaConfig": "projects/metis-ui-consent-management/karma.conf.js"
+            "configPath": "./jest.config.ts"
           }
         }
       }

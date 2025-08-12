@@ -3,8 +3,7 @@
   "dest": "../../dist/metis-ui-consent-management",
   "allowedNonPeerDependencies": [
     "@angular/common",
-    "@angular/core",
-    "jasmine"
+    "@angular/core"
   ],
   "lib": {
     "entryFile": "src/public-api.ts"
