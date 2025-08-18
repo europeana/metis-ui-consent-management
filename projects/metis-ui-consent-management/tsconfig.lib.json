@@ -4,15 +4,13 @@
     "outDir": "../../out-tsc/lib",
     "declaration": true,
     "inlineSources": true,
-    "types": ["jasmine"],
-
+    "types": ["jest"],
     "lib": [
       "dom",
       "es2018"
     ]
   },
   "exclude": [
-    "src/test.ts",
     "**/*.spec.ts"
   ]
 }
