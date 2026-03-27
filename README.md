@@ -10,7 +10,7 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 
 ## Running unit tests
 
-Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io/).
+Run `npm run test:dev` to execute the unit tests via [Jest](https://jestjs.io/).
 
 ## Publishing
 
